@@ -41,4 +41,14 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function fbAccounts()
+    {
+        return $this->hasMany(FbAccount::class);
+    }
+
+    public function scheduledPosts()
+    {
+        return $this->hasMany(ScheduledPost::class);
+    }
 }

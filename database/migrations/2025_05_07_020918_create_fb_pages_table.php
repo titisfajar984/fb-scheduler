@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('fb_pages', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('fb_account_id')->constrained()->onDelete('cascade');
+            $table->string('page_id');
+            $table->string('page_name');
+            $table->text('page_access_token');
             $table->timestamps();
         });
     }

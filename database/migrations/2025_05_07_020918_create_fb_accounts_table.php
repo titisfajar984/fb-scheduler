@@ -13,6 +13,11 @@ return new class extends Migration
     {
         Schema::create('fb_accounts', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->string('facebook_id');
+            $table->string('name');
+            $table->text('access_token');
+            $table->timestamp('token_expired_at')->nullable();
             $table->timestamps();
         });
     }
